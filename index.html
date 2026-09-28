@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anında Fiyat | Aracınızı Anında Nakite Çevirin</title>
+  <meta name="description" content="Aracınız için anında gerçek piyasa teklifi alın, ücretsiz ekspertiz sonrası aynı gün noter devri ve banka hesabınıza anında nakit ödeme ile güvenle satın.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              50: '#FDFBF7',
+              100: '#FAF4E8',
+              200: '#F4E8D0',
+              300: '#EBD7B0',
+              400: '#DFC28B',
+              500: '#C5A059',
+              600: '#AA823B',
+              700: '#8C672B',
+              800: '#6C4F22',
+              900: '#463214'
+            },
+            obsidian: {
+              900: '#070A10',
+              800: '#0E131F',
+              700: '#171E2E',
+              600: '#232D42'
+            },
+            cream: {
+              50: '#FAF8F5',
+              100: '#F4EFEA',
+              200: '#EAE1D7'
+            }
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            display: ['Cinzel', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #FAF8F5;
+      color: #171E2E;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .gold-gradient {
+      background: linear-gradient(135deg, #DFBA73 0%, #C5A059 50%, #9E7A32 100%);
+    }
+    .gold-text-gradient {
+      background: linear-gradient(135deg, #DFBA73 0%, #C5A059 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(197, 160, 89, 0.25);
+    }
+    .damage-part {
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .damage-part:hover {
+      filter: brightness(1.15);
+      stroke: #C5A059;
+      stroke-width: 2.5;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-gold-500 selection:text-white">
+
+  <!-- ÜST BİLGİ ŞERİDİ -->
+  <header class="bg-obsidian-900 border-b border-gold-500/20 text-xs py-2 px-4 text-cream-100">
+    <div class="container mx-auto flex flex-wrap justify-between items-center px-4 gap-2">
+      <div class="flex items-center gap-4">
+        <span class="inline-flex items-center gap-1.5 text-gold-400 font-medium">
+          <i data-lucide="shield-check" class="w-4 h-4"></i> Resmi Ticaret Bakanlığı Yetki Belgesi: No 3401829
+        </span>
+        <span class="hidden md:inline text-white/40">|</span>
+        <span class="hidden md:flex items-center gap-1 text-white/70">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-gold-500"></i> Autopia AVM Kat:2 No:14, Esenyurt / İstanbul
+        </span>
+      </div>
+      <div class="flex items-center gap-5">
+        <a href="tel:08503058490" class="hover:text-gold-400 transition flex items-center gap-1">
+          <i data-lucide="phone-call" class="w-3.5 h-3.5 text-gold-400"></i> 0850 305 84 90
+        </a>
+        <a href="#degerleme" class="text-gold-400 hover:text-white transition font-semibold">Anında Fiyat Al &rarr;</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MENÜ / NAV -->
+  <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gold-500/15 shadow-sm">
+    <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-obsidian-900 flex items-center justify-center border border-gold-500/40 shadow-inner">
+          <i data-lucide="gauge" class="w-5 h-5 text-gold-400"></i>
+        </div>
+        <div>
+          <div class="text-xl font-display font-bold tracking-wider text-obsidian-900 leading-tight">ANINDA<span class="text-gold-600 font-serif italic">FİYAT</span></div>
+          <p class="text-[10px] tracking-widest uppercase text-obsidian-700/60 font-medium">Kurumsal İkinci El Araç Alım</p>
+        </div>
+      </a>
+
+      <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-obsidian-800">
+        <a href="#nasil-calisir" class="hover:text-gold-600 transition">Nasıl Çalışır?</a>
+        <a href="#degerleme" class="hover:text-gold-600 transition">Fiyat Hesapla</a>
+        <a href="#karsilastirma" class="hover:text-gold-600 transition">Neden Biz?</a>
+        <a href="#iletisim-bolumu" class="hover:text-gold-600 transition">İletişim</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/908503058490?text=Merhaba,%20aracıma%20fiyat%20teklifi%20almak%20istiyorum." target="_blank" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-gold-500/40 text-obsidian-800 text-xs font-semibold hover:bg-gold-50 transition">
+          <i data-lucide="message-circle" class="w-4 h-4 text-emerald-600"></i> WhatsApp Destek
+        </a>
+        <button onclick="openAppointmentModal()" class="gold-gradient text-white text-xs font-bold px-5 py-2.5 rounded-full shadow-lg shadow-gold-500/20 hover:shadow-xl hover:scale-[1.02] transition flex items-center gap-2">
+          <span>Randevu Oluştur</span>
+          <i data-lucide="calendar" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO & VALUATION SECTION -->
+  <section class="relative overflow-hidden pt-12 pb-20 bg-cream-50">
+    <div class="container mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
+      
+      <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-100 border border-gold-300/60 text-gold-800 text-xs font-semibold">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+          Resmi Noter Devri & Anında Banka Havalesi
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-obsidian-900 leading-[1.15]">
+          Aracınızı Değerinde, <br>
+          <span class="gold-text-gradient italic font-normal">Aynı Gün Nakite</span> Çevirin.
+        </h1>
+
+        <p class="text-base sm:text-lg text-obsidian-700/80 max-w-xl font-light leading-relaxed">
+          İlan verme telaşı, kapıda pazarlıklar ve sahte alıcılarla vakit kaybetmeyin. İkinci el aracınıza gerçek piyasa algoritmasıyla teklif alın, paranız noter imzasından önce banka hesabınıza yatsın.
+        </p>
+
+        <div class="grid grid-cols-3 gap-4 pt-4 border-t border-gold-200/60 max-w-lg mx-auto lg:mx-0">
+          <div>
+            <div class="text-2xl font-serif font-bold text-obsidian-900">45 Dk.</div>
+            <div class="text-xs text-obsidian-700/70">Ekspertiz & Noter</div>
+          </div>
+          <div>
+            <div class="text-2xl font-serif font-bold text-gold-600">%100</div>
+            <div class="text-xs text-obsidian-700/70">Nakit Güvencesi</div>
+          </div>
+          <div>
+            <div class="text-2xl font-serif font-bold text-obsidian-900">12.400+</div>
+            <div class="text-xs text-obsidian-700/70">Mutlu Müşteri</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DEĞERLEME SİHİRBAZI -->
+      <div id="degerleme" class="lg:col-span-6">
+        <div class="glass-card rounded-3xl p-6 sm:p-8 shadow-2xl shadow-gold-500/10 relative overflow-hidden">
+          
+          <div class="flex items-center justify-between pb-6 mb-6 border-b border-gold-200/60 text-xs">
+            <span class="font-bold text-obsidian-900 uppercase tracking-wider flex items-center gap-2">
+              <i data-lucide="calculator" class="w-4 h-4 text-gold-600"></i> Hızlı Değerleme Motoru
+            </span>
+            <span id="stepCounter" class="bg-gold-100 text-gold-800 font-bold px-3 py-1 rounded-full">Adım 1 / 3</span>
+          </div>
+
+          <!-- ADIM 1: ARAÇ BİLGİLERİ -->
+          <div id="step1" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-obsidian-800 uppercase mb-1.5">Marka</label>
+                <select id="brandSelect" onchange="updateModels()" class="w-full bg-white border border-gold-300 rounded-xl px-4 py-3 text-sm font-medium focus:ring-2 focus:ring-gold-500 outline-none transition">
+                  <option value="Volkswagen" selected>Volkswagen</option>
+                  <option value="Renault">Renault</option>
+                  <option value="Fiat">Fiat</option>
+                  <option value="Ford">Ford</option>
+                  <option value="BMW">BMW</option>
+                  <option value="Mercedes-Benz">Mercedes-Benz</option>
+                  <option value="Toyota">Toyota</option>
+                  <option value="Peugeot">Peugeot</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-obsidian-800 uppercase mb-1.5">Model</label>
+                <select id="modelSelect" class="w-full bg-white border border-gold-300 rounded-xl px-4 py-3 text-sm font-medium focus:ring-2 focus:ring-gold-500 outline-none transition">
+                  <option value="Passat">Passat</option>
+                  <option value="Golf">Golf</option>
+                  <option value="Polo">Polo</option>
+                  <option value="Tiguan">Tiguan</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-obsidian-800 uppercase mb-1.5">Model Yılı</label>
+                <select id="yearSelect" class="w-full bg-white border border-gold-300 rounded-xl px-4 py-3 text-sm font-medium focus:ring-2 focus:ring-gold-500 outline-none transition">
+                  <option value="2025">2025</option>
+                  <option value="2024">2024</option>
+                  <option value="2023">2023</option>
+                  <option value="2022" selected>2022</option>
+                  <option value="2021">2021</option>
+                  <option value="2020">2020</option>
+                  <option value="2019">2019</option>
+                  <option value="2018">2018</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-obsidian-800 uppercase mb-1.5">Vites Tipi</label>
+                <select id="gearSelect" class="w-full bg-white border border-gold-300 rounded-xl px-4 py-3 text-sm font-medium focus:ring-2 focus:ring-gold-500 outline-none transition">
+                  <option value="Otomatik" selected>Otomatik Vites</option>
+                  <option value="Manuel">Manuel Vites</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- KM Seçici -->
+            <div class="bg-gold-50/70 p-4 rounded-2xl border border-gold-200">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-xs font-bold text-obsidian-800 uppercase">Kilometre</span>
+                <span id="kmValueDisplay" class="text-base font-serif font-bold text-gold-700">65.000 KM</span>
+              </div>
+              <input type="range" id="kmInput" min="5000" max="300000" step="5000" value="65000" oninput="updateKmDisplay(this.value)" class="w-full accent-gold-600 cursor-pointer">
+              <div class="flex justify-between text-[10px] text-obsidian-700/60 mt-1 font-semibold">
+                <span>5.000 KM</span>
+                <span>150.000 KM</span>
+                <span>300.000+ KM</span>
+              </div>
+            </div>
+
+            <button onclick="goToStep(2)" class="w-full gold-gradient text-white font-bold py-3.5 rounded-xl shadow-md hover:shadow-lg transition flex items-center justify-center gap-2 mt-4">
+              <span>Hasar & Ekspertiz Durumuna Geç</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <!-- ADIM 2: KUŞBAKIŞI KAPORTA ŞEMASI -->
+          <div id="step2" class="space-y-4 hidden">
+            <div class="flex items-center justify-between text-xs">
+              <span class="text-obsidian-700 font-medium">Parçalara tıklayarak durumu güncelleyin:</span>
+              <span class="text-[11px] font-bold text-gold-700 bg-gold-100 px-2 py-0.5 rounded">Tıkla: Orijinal / Boyalı / Değişen</span>
+            </div>
+
+            <div class="relative bg-white rounded-2xl p-4 border border-gold-200 flex flex-col items-center">
+              <div class="w-full max-w-[280px]">
+                <svg viewBox="0 0 300 450" class="w-full h-auto drop-shadow-sm select-none">
+                  <path d="M 90 20 C 130 15, 170 15, 210 20 C 235 60, 240 120, 240 220 C 240 330, 235 390, 210 430 C 170 435, 130 435, 90 430 C 65 390, 60 330, 60 220 C 60 120, 65 60, 90 20 Z" fill="#F4EFEA" stroke="#C5A059" stroke-width="2"/>
+                  
+                  <path id="part-onTampon" onclick="toggleDamage('onTampon')" class="damage-part" d="M 95 24 Q 150 18 205 24 L 200 48 Q 150 42 100 48 Z" fill="#10B981" stroke="#ffffff" stroke-width="1.5"/>
+                  <text x="150" y="38" text-anchor="middle" font-size="9" fill="#ffffff" font-weight="bold">Ön Tampon</text>
+
+                  <path id="part-kaput" onclick="toggleDamage('kaput')" class="damage-part" d="M 100 52 Q 150 46 200 52 L 208 120 Q 150 115 92 120 Z" fill="#10B981" stroke="#ffffff" stroke-width="1.5"/>
+                  <text x="150" y="90" text-anchor="middle" font-size="11" fill="#ffffff" font-weight="bold">Kaput</text>
+
+                  <path id="part-solOnCamurluk" onclick="toggleDamage('solOnCamurluk')" class="damage-part" d="M 68 55 L 98 52 L 91 122 L 64 130 Z" fill="#10B981" stroke="#ffffff" stroke-width="1.5"/>
+                  <path id="part-sagOnCamurluk" onclick="toggleDamage('sagOnCamurluk')" class="damage-part" d="M 202 52 L 232 55 L 236 130 L 209 122 Z" fill="#10B981" stroke="#ffffff" stroke-width="1.5"/>
+
+                  <polygon points="94,124 206,124 218,172 82,172" fill="#DDE4EE" opacity="0.8"/>
+
+                  <rect id="part-tavan" onclick="toggleDamage('tavan')" class="damage-part" x="84" y="174" width="132" height="110" rx="8" fill="#10B981" stroke="#ffffff" stroke-width="1.5"/>
+                  <text x="150" y="235" text-anchor="middle" font-size="13" fill="#ffffff" font-weight="bold">TAVAN</text>
+
+                  <rect id="part-solOnKapi" onclick="toggleDamage('solOnKapi')" class="damage-part" x="62" y="134" width="20" height="72" rx="3" fill="#10B981" stroke="#ffffff" stroke-width="1.5"/>
+                  <rect id="part-solArkaKapi" onclick="toggleDamage('solArkaKapi')" class="damage-part" x="62" y="210" width="20" height="74" rx="3" fill="#10B981" stroke="#ffffff" stroke-width="1.5"/>
+
+                  <rect id="part-sagOnKapi" onclick="toggleDamage('sagOnKapi')" class="damage-part" x="218" y="134" width="20" height="72" rx="3" fill="#10B981" stroke="#ffffff" stroke-width="1.5"/>
+                  <rect id="part-sagArkaKapi" onclick="toggleDamage('sagArkaKapi')" class="damage-part" x="218" y="210" width="20" height="74" rx="3" fill="#10B981" stroke="#ffffff" stroke-width="1.5"/>
+
+                  <polygon points="84,286 216,286 208,328 92,328" fill="#DDE4EE" opacity="0.8"/>
+
+                  <path id="part-bagaj" onclick="toggleDamage('bagaj')" class="damage-part" d="M 94 330 Q 150 326 206 330 L 202 396 Q 150 402 98 396 Z" fill="#10B981" stroke="#ffffff" stroke-width="1.5"/>
+                  <text x="150" y="368" text-anchor="middle" font-size="11" fill="#ffffff" font-weight="bold">Bagaj</text>
+
+                  <path id="part-arkaTampon" onclick="toggleDamage('arkaTampon')" class="damage-part" d="M 98 400 Q 150 405 202 400 L 208 424 Q 150 432 92 424 Z" fill="#10B981" stroke="#ffffff" stroke-width="1.5"/>
+                  <text x="150" y="416" text-anchor="middle" font-size="9" fill="#ffffff" font-weight="bold">Arka Tampon</text>
+                </svg>
+              </div>
+
+              <div class="flex items-center justify-center gap-6 mt-3 text-xs font-semibold">
+                <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-emerald-500"></span> Orijinal</span>
+                <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-amber-500"></span> Boyalı</span>
+                <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-red-500"></span> Değişen</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 items-center">
+              <div>
+                <label class="block text-xs font-bold text-obsidian-800 uppercase mb-1">Tramer Kaydı (TL)</label>
+                <input type="number" id="tramerInput" value="0" step="1000" class="w-full bg-white border border-gold-300 rounded-xl px-3 py-2.5 text-sm font-semibold focus:ring-2 focus:ring-gold-500 outline-none">
+              </div>
+              <div class="text-xs text-obsidian-700/70 pt-4">
+                Hasar kaydı yoksa 0 olarak bırakınız.
+              </div>
+            </div>
+
+            <div class="flex gap-3">
+              <button onclick="goToStep(1)" class="w-1/3 bg-cream-200 text-obsidian-800 font-bold py-3.5 rounded-xl hover:bg-cream-300 transition text-sm">
+                &larr; Geri
+              </button>
+              <button onclick="calculateValuation()" class="w-2/3 gold-gradient text-white font-bold py-3.5 rounded-xl shadow-md hover:shadow-lg transition text-sm flex items-center justify-center gap-2">
+                <span>Piyasa Teklifini Hesapla</span>
+                <i data-lucide="sparkles" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- ADIM 3: TEKLİF & SİZİNLE NASIL İLETİŞİME GEÇELİM ALANI -->
+          <div id="step3" class="space-y-5 hidden">
+            <div class="bg-obsidian-900 text-cream-50 p-6 rounded-2xl border border-gold-500/40 relative overflow-hidden text-center">
+              <div class="text-xs tracking-widest uppercase text-gold-400 font-bold mb-1">Hesaplanan Anında Nakit Teklifimiz</div>
+              <div id="offerDisplay" class="text-3xl sm:text-4xl font-serif font-bold text-white mb-2">1.240.000 TL</div>
+              
+              <div class="inline-flex items-center gap-2 text-xs bg-white/10 px-3 py-1 rounded-full text-gold-300">
+                <i data-lucide="clock" class="w-3.5 h-3.5"></i> Bu teklif 7 gün boyunca sistemimizde rezerve edilmiştir
+              </div>
+
+              <div class="mt-4 pt-4 border-t border-white/10 grid grid-cols-2 text-xs text-left">
+                <div>
+                  <span class="text-white/60">Araç:</span>
+                  <div id="resultCarTitle" class="font-bold text-white">2022 Volkswagen Passat</div>
+                </div>
+                <div>
+                  <span class="text-white/60">Kaporta Durumu:</span>
+                  <div id="resultDamageSummary" class="font-bold text-gold-400">Hatasız / Orijinal</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SİZİNLE NASIL İLETİŞİME GEÇELİM BÖLÜMÜ -->
+            <div id="iletisim-bolumu" class="bg-white p-5 rounded-2xl border border-gold-300 space-y-4">
+              <div class="border-b border-gold-100 pb-3">
+                <h4 class="text-sm font-bold text-obsidian-900 uppercase tracking-wider flex items-center gap-2">
+                  <i data-lucide="send" class="w-4 h-4 text-gold-600"></i> Sizinle Nasıl İletişime Geçelim?
+                </h4>
+                <p class="text-xs text-obsidian-700/70 mt-0.5">Bilgilerinizi bırakın, satış danışmanımız noter devri ve nakit ödemenizi planlamak için hemen arasın.</p>
+              </div>
+
+              <!-- FORMSUBMIT CANLI ENTEGRASYONU (enesisitan5@gmail.com) -->
+              <form id="contactLeadForm" action="https://formsubmit.co/ajax/enesisitan5@gmail.com" method="POST" onsubmit="handleContactSubmit(event)" class="space-y-3">
+                
+                <input type="hidden" name="_subject" value="Yeni Araç Teklif ve İletişim Talebi (Anında Fiyat)">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" id="hiddenVehicleDetails" name="Araç Bilgisi" value="">
+                <input type="hidden" id="hiddenCalculatedOffer" name="Hesaplanan Teklif Tutarı" value="">
+                <input type="hidden" id="hiddenDamageReport" name="Kaporta & Hasar Özeti" value="">
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label class="block text-[11px] font-bold text-obsidian-800 uppercase mb-1">Adınız Soyadınız</label>
+                    <input type="text" name="Müşteri Ad Soyad" required placeholder="Adınız Soyadınız" class="w-full bg-cream-50 border border-gold-200 rounded-xl px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-gold-500">
+                  </div>
+                  <div>
+                    <label class="block text-[11px] font-bold text-obsidian-800 uppercase mb-1">Telefon Numaranız</label>
+                    <input type="tel" name="Müşteri Telefon" required placeholder="05XX XXX XX XX" class="w-full bg-cream-50 border border-gold-200 rounded-xl px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-gold-500">
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-[11px] font-bold text-obsidian-800 uppercase mb-1.5">Tercih Ettiğiniz İletişim Şekli</label>
+                  <div class="grid grid-cols-3 gap-2">
+                    <label class="flex items-center gap-1.5 p-2 rounded-lg border border-gold-200 text-xs font-medium cursor-pointer hover:bg-gold-50 transition">
+                      <input type="radio" name="İletişim Kanalı Tercihi" value="Telefonla Arama" checked class="accent-gold-600">
+                      <span>📞 Telefon</span>
+                    </label>
+                    <label class="flex items-center gap-1.5 p-2 rounded-lg border border-gold-200 text-xs font-medium cursor-pointer hover:bg-gold-50 transition">
+                      <input type="radio" name="İletişim Kanalı Tercihi" value="WhatsApp" class="accent-gold-600">
+                      <span>💬 WhatsApp</span>
+                    </label>
+                    <label class="flex items-center gap-1.5 p-2 rounded-lg border border-gold-200 text-xs font-medium cursor-pointer hover:bg-gold-50 transition">
+                      <input type="radio" name="İletişim Kanalı Tercihi" value="E-Posta" class="accent-gold-600">
+                      <span>✉️ E-posta</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-[11px] font-bold text-obsidian-800 uppercase mb-1">Görüşme İçin Uygun Zaman Dilimi</label>
+                  <select name="Müsait Olunan Saat" class="w-full bg-cream-50 border border-gold-200 rounded-xl px-3 py-2 text-xs font-medium outline-none">
+                    <option value="Hemen / İlk Fırsatta">Hemen / İlk Fırsatta</option>
+                    <option value="Sabah (09:00 - 12:00)">Sabah (09:00 - 12:00)</option>
+                    <option value="Öğleden Sonra (12:00 - 17:00)">Öğleden Sonra (12:00 - 17:00)</option>
+                    <option value="Akşamüstü (17:00 - 19:30)">Akşamüstü (17:00 - 19:30)</option>
+                  </select>
+                </div>
+
+                <button type="submit" id="submitLeadBtn" class="w-full gold-gradient text-white font-bold py-3 rounded-xl shadow-lg hover:shadow-xl transition flex items-center justify-center gap-2 text-sm mt-3">
+                  <span>Bilgilerimi İlet & Teklifi Kilitle</span>
+                  <i data-lucide="check-circle" class="w-4 h-4"></i>
+                </button>
+              </form>
+
+              <!-- Başarı Bildirimi -->
+              <div id="formSuccessAlert" class="hidden p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-900 text-xs space-y-1">
+                <div class="font-bold flex items-center gap-1.5 text-sm">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Talebiniz Başarıyla Alındı!
+                </div>
+                <p>Araç ve iletişim bilgileriniz satış danışmanımıza iletilmiştir. Belirttiğiniz saat aralığında tarafınıza dönüş sağlanacaktır.</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <button onclick="openAppointmentModal()" class="w-full bg-obsidian-900 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-1.5 hover:bg-obsidian-800 transition">
+                <i data-lucide="calendar" class="w-4 h-4 text-gold-400"></i> Randevu Oluştur
+              </button>
+              <button onclick="goToStep(1)" class="w-full border border-gold-400 text-obsidian-800 font-bold py-3 rounded-xl text-xs hover:bg-gold-50 transition">
+                Yeniden Hesapla
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- NASIL ÇALIŞIR BÖLÜMÜ -->
+  <section id="nasil-calisir" class="py-20 bg-white border-y border-gold-200/50">
+    <div class="container mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs uppercase tracking-widest text-gold-600 font-bold">Kolay & Hızlı Süreç</span>
+        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-obsidian-900 mt-2">Aracınızı 45 Dakikada Nasıl Satarsınız?</h2>
+        <p class="text-sm text-obsidian-700/70 mt-3 font-light">Geleneksel ilan yorgunluğuna ve günlerce süren pazarlıklara son verdik. Kurumsal güvenceyle aynı gün paranız hesabınızda.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-cream-50 p-8 rounded-3xl border border-gold-200/80 hover:shadow-xl transition duration-300">
+          <div class="w-14 h-14 rounded-2xl bg-obsidian-900 text-gold-400 flex items-center justify-center font-serif text-2xl font-bold mb-6 border border-gold-500/30">
+            1
+          </div>
+          <h3 class="text-lg font-bold text-obsidian-900 mb-2">Hemen Değerleme Yapın</h3>
+          <p class="text-sm text-obsidian-700/75 leading-relaxed">
+            Marka-model ve kaporta durumunuzu girerek saniyeler içinde güncel ikinci el piyasasına dayalı gerçek nakit teklifinizi görün.
+          </p>
+        </div>
+
+        <div class="bg-cream-50 p-8 rounded-3xl border border-gold-200/80 hover:shadow-xl transition duration-300">
+          <div class="w-14 h-14 rounded-2xl gold-gradient text-white flex items-center justify-center font-serif text-2xl font-bold mb-6">
+            2
+          </div>
+          <h3 class="text-lg font-bold text-obsidian-900 mb-2">Ücretsiz Ekspertiz</h3>
+          <p class="text-sm text-obsidian-700/75 leading-relaxed">
+            Autopia AVM şubemizde veya kapınızda mobil ekspertiz ekibimizle aracınız 30 dakikada TSE belgeli kontrolden geçirilsin.
+          </p>
+        </div>
+
+        <div class="bg-cream-50 p-8 rounded-3xl border border-gold-200/80 hover:shadow-xl transition duration-300">
+          <div class="w-14 h-14 rounded-2xl bg-obsidian-900 text-gold-400 flex items-center justify-center font-serif text-2xl font-bold mb-6 border border-gold-500/30">
+            3
+          </div>
+          <h3 class="text-lg font-bold text-obsidian-900 mb-2">Noterde Anında Ödeme</h3>
+          <p class="text-sm text-obsidian-700/75 leading-relaxed">
+            Resmi noter satışı imzalanmadan önce teklif edilen tutar eksiksiz şekilde banka hesabınıza havale/EFT ile yatar.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KARŞILAŞTIRMA TABLOSU -->
+  <section id="karsilastirma" class="py-20 bg-cream-50">
+    <div class="container mx-auto px-6 max-w-4xl">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-serif font-bold text-obsidian-900">Neden Anında Fiyat?</h2>
+        <p class="text-sm text-obsidian-700/70 mt-2">Bireysel satış zahmetiyle kurumsal güvencemizi kıyaslayın.</p>
+      </div>
+
+      <div class="bg-white rounded-3xl border border-gold-200 shadow-xl overflow-hidden">
+        <table class="w-full text-left text-sm">
+          <thead>
+            <tr class="bg-obsidian-900 text-white border-b border-gold-500/30">
+              <th class="p-4 sm:p-5 font-medium">Özellik</th>
+              <th class="p-4 sm:p-5 font-bold text-gold-400">Anında Fiyat</th>
+              <th class="p-4 sm:p-5 font-medium text-white/60">Geleneksel Satış</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gold-100">
+            <tr>
+              <td class="p-4 sm:p-5 font-semibold text-obsidian-900">Satış Süresi</td>
+              <td class="p-4 sm:p-5 font-bold text-emerald-700">Aynı Gün (45 Dakika)</td>
+              <td class="p-4 sm:p-5 text-obsidian-700/60">30 - 60 Gün ortalama</td>
+            </tr>
+            <tr>
+              <td class="p-4 sm:p-5 font-semibold text-obsidian-900">Ödeme Güvenliği</td>
+              <td class="p-4 sm:p-5 font-bold text-emerald-700">Noterde Kurumsal Banka Havalesi</td>
+              <td class="p-4 sm:p-5 text-obsidian-700/60">Elden nakit / Sahte para riski</td>
+            </tr>
+            <tr>
+              <td class="p-4 sm:p-5 font-semibold text-obsidian-900">Ekspertiz Ücreti</td>
+              <td class="p-4 sm:p-5 font-bold text-emerald-700">Tamamen Ücretsiz</td>
+              <td class="p-4 sm:p-5 text-obsidian-700/60">Satıcı veya Alıcıya Ek Maliyet</td>
+            </tr>
+            <tr>
+              <td class="p-4 sm:p-5 font-semibold text-obsidian-900">Telefon Trafiği & Pazarlık</td>
+              <td class="p-4 sm:p-5 font-bold text-emerald-700">Sıfır Rahatsızlık</td>
+              <td class="p-4 sm:p-5 text-obsidian-700/60">Onlarca arama, mesaj ve zaman kaybı</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- RANDEVU OLUŞTUR MODALI -->
+  <div id="appointmentModal" class="fixed inset-0 z-50 bg-obsidian-900/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 border border-gold-300 shadow-2xl relative">
+      <button onclick="closeAppointmentModal()" class="absolute top-5 right-5 text-obsidian-700/60 hover:text-obsidian-900">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+
+      <div class="mb-5">
+        <h3 class="text-2xl font-serif font-bold text-obsidian-900">Randevu Oluştur</h3>
+        <p class="text-xs text-obsidian-700/70 mt-1">Ekspertiz noktasını ve size en uygun zamanı seçin.</p>
+      </div>
+
+      <form id="appointmentForm" action="https://formsubmit.co/ajax/enesisitan5@gmail.com" method="POST" onsubmit="handleAppointmentSubmit(event)" class="space-y-4">
+        <input type="hidden" name="_subject" value="Yeni Ekspertiz Randevu Talebi (Anında Fiyat)">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+
+        <div>
+          <label class="block text-xs font-bold text-obsidian-800 uppercase mb-1">Lokasyon Tercihi</label>
+          <select name="Ekspertiz Lokasyonu" class="w-full bg-cream-50 border border-gold-300 rounded-xl px-4 py-2.5 text-sm font-medium outline-none">
+            <option value="Autopia AVM Şubesi (Esenyurt / İstanbul)">Autopia AVM Şubesi (Esenyurt / İstanbul)</option>
+            <option value="Mobil Ekspertiz (Adresimde Hizmet)">Mobil Ekspertiz (Adresimde Hizmet)</option>
+          </select>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-obsidian-800 uppercase mb-1">Randevu Tarihi</label>
+            <input type="date" name="Randevu Tarihi" required class="w-full bg-cream-50 border border-gold-300 rounded-xl px-3 py-2 text-sm outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-obsidian-800 uppercase mb-1">Saat Dilimi</label>
+            <select name="Randevu Saati" class="w-full bg-cream-50 border border-gold-300 rounded-xl px-3 py-2 text-sm outline-none">
+              <option value="10:00 - 12:00">10:00 - 12:00</option>
+              <option value="13:00 - 15:00">13:00 - 15:00</option>
+              <option value="15:30 - 17:30">15:30 - 17:30</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-obsidian-800 uppercase mb-1">Adınız Soyadınız</label>
+          <input type="text" name="Ad Soyad" required placeholder="Adınız Soyadınız" class="w-full bg-cream-50 border border-gold-300 rounded-xl px-4 py-2.5 text-sm outline-none">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-obsidian-800 uppercase mb-1">Telefon Numarası</label>
+          <input type="tel" name="Telefon Numarası" required placeholder="05XX XXX XX XX" class="w-full bg-cream-50 border border-gold-300 rounded-xl px-4 py-2.5 text-sm outline-none">
+        </div>
+
+        <button type="submit" id="aptBtn" class="w-full gold-gradient text-white font-bold py-3.5 rounded-xl shadow-lg hover:shadow-xl transition text-sm">
+          Randevuyu Onayla & Gönder
+        </button>
+      </form>
+
+      <div id="aptSuccessAlert" class="hidden p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-900 text-xs space-y-1 mt-4">
+        <div class="font-bold flex items-center gap-1.5 text-sm">
+          <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Randevu Talebiniz Alındı!
+        </div>
+        <p>Ekspertiz ekibimiz randevu saatinizi teyit etmek için kısa süre içinde sizi arayacaktır.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-obsidian-900 text-cream-100 py-12 border-t border-gold-500/20">
+    <div class="container mx-auto px-6 grid md:grid-cols-4 gap-8 text-sm">
+      <div class="space-y-3 md:col-span-2">
+        <div class="text-2xl font-display font-bold tracking-wider text-white">ANINDA<span class="text-gold-400 font-serif italic">FİYAT</span></div>
+        <p class="text-white/60 text-xs max-w-sm">
+          Türkiye genelinde kurumsal güvenceyle araç alım hizmeti sunuyoruz. Şeffaf ekspertiz, adil piyasa değerlemesi ve resmi noter satışı prensibiyle çalışıyoruz.
+        </p>
+        <div class="text-xs text-gold-400 font-semibold pt-2">
+          Merkez: Autopia AVM Kat:2 No:14 Gökevler Mah. Adnan Kahveci Bulv. Esenyurt / İstanbul
+        </div>
+      </div>
+      <div>
+        <h4 class="font-bold text-white uppercase tracking-wider text-xs mb-3">Hızlı Menü</h4>
+        <ul class="space-y-2 text-xs text-white/70">
+          <li><a href="#degerleme" class="hover:text-gold-400 transition">Fiyat Hesapla</a></li>
+          <li><a href="#nasil-calisir" class="hover:text-gold-400 transition">Nasıl Çalışır?</a></li>
+          <li><a href="#karsilastirma" class="hover:text-gold-400 transition">Avantajlarımız</a></li>
+          <li><a href="https://wa.me/908503058490" target="_blank" class="hover:text-gold-400 transition">WhatsApp Danışmanı</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold text-white uppercase tracking-wider text-xs mb-3">İletişim & Destek</h4>
+        <ul class="space-y-2 text-xs text-white/70">
+          <li>Müşteri Hizmetleri: 0850 305 84 90</li>
+          <li>E-Posta: enesisitan5@gmail.com</li>
+          <li>Çalışma Saatleri: 09:00 - 19:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container mx-auto px-6 pt-8 mt-8 border-t border-white/10 text-center text-xs text-white/40">
+      &copy; 2026 Anında Fiyat Otomotiv A.Ş. Tüm hakları saklıdır.
+    </div>
+  </footer>
+
+  <!-- UYGULAMA MOTORU & FORM İLETİM SCRIPTLERİ -->
+  <script>
+    // Araç Modelleri
+    const carModels = {
+      Volkswagen: ["Passat", "Golf", "Polo", "Tiguan", "Arteon", "T-Roc"],
+      Renault: ["Clio", "Megane", "Captur", "Austral", "Taliant"],
+      Fiat: ["Egea Sedan", "Egea Cross", "500X"],
+      Ford: ["Focus", "Puma", "Kuga", "Fiesta"],
+      BMW: ["320i", "520i", "118i", "X1", "X3"],
+      "Mercedes-Benz": ["C200d", "E200", "A180", "GLA"],
+      Toyota: ["Corolla", "C-HR", "Yaris Cross", "RAV4"],
+      Peugeot: ["208", "308", "2008", "3008", "408"]
+    };
+
+    // Parça Durumları (0: Orijinal, 1: Boyalı, 2: Değişen)
+    const damageParts = {
+      onTampon: { name: "Ön Tampon", state: 0 },
+      kaput: { name: "Motor Kaputu", state: 0 },
+      solOnCamurluk: { name: "Sol Ön Çamurluk", state: 0 },
+      sagOnCamurluk: { name: "Sağ Ön Çamurluk", state: 0 },
+      tavan: { name: "Tavan", state: 0 },
+      solOnKapi: { name: "Sol Ön Kapı", state: 0 },
+      solArkaKapi: { name: "Sol Arka Kapı", state: 0 },
+      sagOnKapi: { name: "Sağ Ön Kapı", state: 0 },
+      sagArkaKapi: { name: "Sağ Arka Kapı", state: 0 },
+      bagaj: { name: "Bagaj Kapağı", state: 0 },
+      arkaTampon: { name: "Arka Tampon", state: 0 }
+    };
+
+    const colorStates = ["#10B981", "#F59E0B", "#EF4444"]; // Yeşil, Sarı, Kırmızı
+
+    function updateModels() {
+      const brand = document.getElementById('brandSelect').value;
+      const modelSelect = document.getElementById('modelSelect');
+      modelSelect.innerHTML = '';
+      (carModels[brand] || []).forEach(model => {
+        const opt = document.createElement('option');
+        opt.value = model;
+        opt.textContent = model;
+        modelSelect.appendChild(opt);
+      });
+    }
+
+    function updateKmDisplay(val) {
+      document.getElementById('kmValueDisplay').textContent = Number(val).toLocaleString('tr-TR') + ' KM';
+    }
+
+    function goToStep(step) {
+      document.getElementById('step1').classList.add('hidden');
+      document.getElementById('step2').classList.add('hidden');
+      document.getElementById('step3').classList.add('hidden');
+
+      document.getElementById(`step${step}`).classList.remove('hidden');
+      document.getElementById('stepCounter').textContent = `Adım ${step} / 3`;
+      lucide.createIcons();
+    }
+
+    function toggleDamage(partKey) {
+      const part = damageParts[partKey];
+      part.state = (part.state + 1) % 3;
+      const el = document.getElementById(`part-${partKey}`);
+      if (el) {
+        el.setAttribute('fill', colorStates[part.state]);
+      }
+    }
+
+    function calculateValuation() {
+      const brand = document.getElementById('brandSelect').value;
+      const model = document.getElementById('modelSelect').value;
+      const year = parseInt(document.getElementById('yearSelect').value);
+      const km = parseInt(document.getElementById('kmInput').value);
+      const tramer = parseInt(document.getElementById('tramerInput').value) || 0;
+
+      let basePrice = 1100000;
+      if (brand === "BMW" || brand === "Mercedes-Benz") basePrice = 2100000;
+      else if (brand === "Volkswagen") basePrice = 1350000;
+      else if (brand === "Fiat" || brand === "Renault") basePrice = 850000;
+
+      const age = 2026 - year;
+      let calculatedPrice = basePrice * (1 - (age * 0.055));
+
+      const kmPenalty = (km / 10000) * 0.015;
+      calculatedPrice = calculatedPrice * (1 - kmPenalty);
+
+      let paintedCount = 0;
+      let replacedCount = 0;
+      for (const key in damageParts) {
+        if (damageParts[key].state === 1) paintedCount++;
+        if (damageParts[key].state === 2) replacedCount++;
+      }
+
+      calculatedPrice -= (paintedCount * 22000);
+      calculatedPrice -= (replacedCount * 45000);
+      calculatedPrice -= (tramer * 0.45);
+
+      if (calculatedPrice < 350000) calculatedPrice = 350000;
+      const finalOffer = Math.round(calculatedPrice / 5000) * 5000;
+
+      const formattedPrice = finalOffer.toLocaleString('tr-TR') + ' TL';
+      document.getElementById('offerDisplay').textContent = formattedPrice;
+      document.getElementById('resultCarTitle').textContent = `${year} ${brand} ${model}`;
+
+      let damageSummary = "Hatasız / Orijinal";
+      if (replacedCount > 0 || paintedCount > 0) {
+        damageSummary = `${paintedCount} Parça Boyalı, ${replacedCount} Değişen`;
+      }
+      document.getElementById('resultDamageSummary').textContent = damageSummary;
+
+      // Form alanlarına araç verilerini otomatik bağla
+      document.getElementById('hiddenVehicleDetails').value = `${year} ${brand} ${model} - ${km.toLocaleString('tr-TR')} KM`;
+      document.getElementById('hiddenCalculatedOffer').value = formattedPrice;
+      document.getElementById('hiddenDamageReport').value = `${damageSummary} | Tramer: ${tramer.toLocaleString('tr-TR')} TL`;
+
+      goToStep(3);
+    }
+
+    // İletişim Formunu enesisitan5@gmail.com adresine Ajax ile iletme
+    async function handleContactSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = document.getElementById('submitLeadBtn');
+      btn.disabled = true;
+      btn.innerHTML = `<span>İletiliyor...</span>`;
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          form.classList.add('hidden');
+          document.getElementById('formSuccessAlert').classList.remove('hidden');
+        } else {
+          // Doğrudan form submit yedeği
+          form.action = "https://formsubmit.co/enesisitan5@gmail.com";
+          form.submit();
+        }
+      } catch (err) {
+        form.action = "https://formsubmit.co/enesisitan5@gmail.com";
+        form.submit();
+      }
+    }
+
+    function openAppointmentModal() {
+      document.getElementById('appointmentModal').classList.remove('hidden');
+    }
+
+    function closeAppointmentModal() {
+      document.getElementById('appointmentModal').classList.add('hidden');
+    }
+
+    // Randevu Formunu Gönderme
+    async function handleAppointmentSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = document.getElementById('aptBtn');
+      btn.disabled = true;
+      btn.textContent = "Gönderiliyor...";
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          form.classList.add('hidden');
+          document.getElementById('aptSuccessAlert').classList.remove('hidden');
+        } else {
+          form.action = "https://formsubmit.co/enesisitan5@gmail.com";
+          form.submit();
+        }
+      } catch (err) {
+        form.action = "https://formsubmit.co/enesisitan5@gmail.com";
+        form.submit();
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
